@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-hexo，在终端输入"><span class="toc-text">安装 hexo，在终端输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置秘钥"><span class="toc-text">配置秘钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到-GitHub-上"><span class="toc-text">部署到 GitHub 上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置独立域名"><span class="toc-text">设置独立域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑文章"><span class="toc-text">编辑文章</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-hexo，在终端输入"><span class="toc-text">安装 hexo，在终端输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置秘钥"><span class="toc-text">配置秘钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#部署到-GitHub-上"><span class="toc-text">部署到 GitHub 上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置独立域名"><span class="toc-text">设置独立域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑文章"><span class="toc-text">编辑文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新博客"><span class="toc-text">更新博客</span></a></li></ol>
 </div>
     
 </div>
@@ -128,6 +128,9 @@
         <span class="attr">标签：/
         
         <a class="tag" href="/tags/#blog" title="blog">blog</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
         <span>/</span>
         
         
@@ -218,6 +221,17 @@
 </ul>
 <p>博客根目录 <code>/source/_posts/</code> 文件夹下，删除对应文章的 <code>.md</code> 文件</p>
 <p><code>_posts/</code> 文件夹不能为空，否则网页会报错 <code>Cannot GET /</code></p>
+<p><br></p>
+<h3 id="更新博客"><a href="#更新博客" class="headerlink" title="更新博客"></a>更新博客</h3><ul>
+<li>本地预览</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>打开 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 预览效果</p>
+<ul>
+<li>部署到 GitHub</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p><br></p>
 <hr>
 <p>鸣谢：<br><a href="https://github.com/HarleyWang93/blog/issues/1" target="_blank" rel="noopener">Hexo + GitHub (Coding) Pages 搭建博客</a><br><a href="http://lixiaolai.com/2016/06/22/makecs-build-a-blog-with-hexo-on-github/" target="_blank" rel="noopener">使用 Hexo 为自己在 Github 上建一个静态 Blog 站点</a></p>
 <p>2018-12-11</p>
