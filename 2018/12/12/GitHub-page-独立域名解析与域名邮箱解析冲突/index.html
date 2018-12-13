@@ -11,7 +11,7 @@
 
     <title>
         
-        Hello World - v1coder
+        GitHub page 独立域名解析与域名邮箱解析冲突 - v1coder
         
     </title>
 
@@ -119,19 +119,42 @@
 
 <div class="post-container">
     <div class="post-title">
-        Hello World
+        GitHub page 独立域名解析与域名邮箱解析冲突
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-12-10 21:38:41</span></span>
+        <span class="attr">发布于：<span>2018-12-12 14:04:20</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#blog" title="blog">blog</a>
+        <span>/</span>
         
         
+        </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
 </span>
 
     </div>
     <div class="post-content ">
-        
+        <p><br></p>
+<p>GitHub page 独立域名的解析 CNAME 记录，与域名邮箱的解析 MX 记录冲突</p>
+<p>解决方法：将 <code>github pages</code> 的 CNAME 记录更换为 A 记录，使用 ip 作为记录值</p>
+<p><br></p>
+<p>具体：</p>
+<ul>
+<li>先把原来的 GitHub page 解析删除，</li>
+</ul>
+<ul>
+<li>添加新的 GitHub page 解析</li>
+</ul>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@          A             <span class="number">185.199</span><span class="number">.108</span><span class="number">.153</span></span><br><span class="line">@          A             <span class="number">185.199</span><span class="number">.109</span><span class="number">.153</span></span><br><span class="line">www      CNAME           username.github.io</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后就可以添加域名邮箱解析了。</li>
+</ul>
+<p><br></p>
+<p>也可以使用类似 blog.yourdomain 这样的二级域名作为博客域名，避免对根域名使用 CNAME 记录。</p>
+
         
         <br>
         <div id="comment-container">
