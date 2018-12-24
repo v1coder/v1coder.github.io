@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        煎蛋妹子图爬虫 - v1coder
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 我可以学 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>v1coder</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码："><span class="toc-text">代码：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体方法："><span class="toc-text">具体方法：</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 我可以学 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        煎蛋妹子图爬虫
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-12-25 00:17:26</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#spider" title="spider">spider</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#python" title="python">python</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <p><img src="http://wx1.sinaimg.cn/mw600/82e98952ly1fygoarfjxqj20uo1hc7ci.jpg" alt=""></p>
+<p>为了不增加网站的负担，这里只做一个demo，输出一页的图片地址<br><br></p>
+<hr>
+<h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># Filename: jandan_demo.py</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">输出煎蛋妹子图地址</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">@author: v1coder</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">''</span>&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://jandan.net/top-ooxx'</span></span><br><span class="line">data = requests.get(url, headers=headers).content</span><br><span class="line">soup = BeautifulSoup(data, <span class="string">'lxml'</span>)</span><br><span class="line">url_tags = soup.find_all(<span class="string">'span'</span>, class_=<span class="string">"img-hash"</span>)</span><br><span class="line"><span class="keyword">for</span> url_tag <span class="keyword">in</span> url_tags:</span><br><span class="line">    url_hash = url_tag.text</span><br><span class="line">    <span class="comment"># base64 to bytes</span></span><br><span class="line">    url_bytes = base64.b64decode(url_hash)</span><br><span class="line">    <span class="comment"># bytes to str</span></span><br><span class="line">    url = str(url_bytes, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    complete_url = <span class="string">'http:'</span> + url</span><br><span class="line">    print(complete_url)</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<hr>
+<p>煎蛋的网页源代码找不到图片地址，所以我们换一种方法<br><br></p>
+<h3 id="具体方法："><a href="#具体方法：" class="headerlink" title="具体方法："></a>具体方法：</h3><ul>
+<li>找到图片代码位置</li>
+</ul>
+<p>打开 Chrome 浏览器开发者工具（Mac 下快捷键 option+command+I），点击开发者工具左上角的箭头，再将点击网页中的图片，就能定位到图片代码的位置</p>
+<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2018-12-24-144607.png" alt=""></p>
+<p><br></p>
+<ul>
+<li>网页源码中找信息</li>
+</ul>
+<p>Chrome 浏览器打开网页源码（Mac 下快捷键 option+command+U），在本该出现图片地址的位置是以下代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"//img.jandan.net/img/blank.gif"</span> <span class="attr">onload</span>=<span class="string">"jandan_load_img(this)"</span> /&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"img-hash"</span>&gt;</span>Ly93eDEuc2luYWltZy5jbi9tdzYwMC84MmU5ODk1Mmx5MWZ5Z29hcmZqeHFqMjB1bzFoYzdjaS5qcGc=<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里有两个关键信息：</p>
+<p><code>jandan_load_img(this)</code> 函数和<code>&quot;img-hash&quot;&gt;</code> 后面的值</p>
+<p><br></p>
+<ul>
+<li>解码网址</li>
+</ul>
+<p>先从 <code>jandan_load_img(this)</code> 入手</p>
+<p>开发者模式下全局搜索（Windows快捷键 ctrl+shift+f，Mac 快捷键 option+command+F），搜函数名<code>jandan_load_img</code> ，找到对应的的 js 文件，再点击花括号</p>
+<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2018-12-24-151152.png" alt=""></p>
+<p><br></p>
+<p>就可以看到 js 文件的代码，在里面搜索（快捷键 command+F）函数名<code>jandan_load_img</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jandan_load_img</span>(<span class="params">b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> d = $(b);</span><br><span class="line">    <span class="keyword">var</span> f = d.next(<span class="string">"span.img-hash"</span>);</span><br><span class="line">    <span class="keyword">var</span> e = f.text();</span><br><span class="line">    f.remove();</span><br><span class="line">    <span class="keyword">var</span> c = jdQFXcEeWzpGANTZyHb1G0w0ggDlCZ5ILV(e, <span class="string">"qOzLfOL8mfbbsawjoQQPkWwkakHnOGze"</span>);</span><br><span class="line">    <span class="keyword">var</span> a = $(<span class="string">'&lt;a href="'</span> + c.replace(<span class="regexp">/(\/\/\w+\.sinaimg\.cn\/)(\w+)(\/.+\.(gif|jpg|jpeg))/</span>, <span class="string">"$1large$3"</span>) + <span class="string">'" target="_blank" class="view_img_link"&gt;[查看原图]&lt;/a&gt;'</span>);</span><br><span class="line">    d.before(a);</span><br><span class="line">    d.before(<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">    d.removeAttr(<span class="string">"onload"</span>);</span><br><span class="line">    d.attr(<span class="string">"src"</span>, location.protocol + c.replace(<span class="regexp">/(\/\/\w+\.sinaimg\.cn\/)(\w+)(\/.+\.gif)/</span>, <span class="string">"$1thumb180$3"</span>));</span><br><span class="line">    <span class="keyword">if</span> (<span class="regexp">/\.gif$/</span>.test(c)) &#123;</span><br><span class="line">        d.attr(<span class="string">"org_src"</span>, location.protocol + c);</span><br><span class="line">        b.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            add_img_loading_mask(<span class="keyword">this</span>, load_sina_gif)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>大概意思是说取到 <code>class=&#39;img-hash&#39;</code> 的 span 标签中的值, 通过 <code>jdQFXcEeWzpGANTZyHb1G0w0ggDlCZ5ILV</code> 这个函数处理之后, 然后再拼接成图片的地址。</p>
+<p><br></p>
+<p> 我们再查找<code>jdQFXcEeWzpGANTZyHb1G0w0ggDlCZ5ILV</code> 这个函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jdQFXcEeWzpGANTZyHb1G0w0ggDlCZ5ILV = <span class="function"><span class="keyword">function</span>(<span class="params">o, y, g</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> d = o;</span><br><span class="line">    <span class="keyword">var</span> l = <span class="string">"DECODE"</span>;</span><br><span class="line">    <span class="keyword">var</span> y = y ? y : <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">var</span> g = g ? g : <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> h = <span class="number">4</span>;</span><br><span class="line">    y = md5(y);</span><br><span class="line">    <span class="keyword">var</span> x = md5(y.substr(<span class="number">0</span>, <span class="number">16</span>));</span><br><span class="line">    <span class="keyword">var</span> v = md5(y.substr(<span class="number">16</span>, <span class="number">16</span>));</span><br><span class="line">    <span class="keyword">if</span> (h) &#123;</span><br><span class="line">        <span class="keyword">if</span> (l == <span class="string">"DECODE"</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> b = md5(microtime());</span><br><span class="line">            <span class="keyword">var</span> e = b.length - h;</span><br><span class="line">            <span class="keyword">var</span> u = b.substr(e, h)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> u = <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> t = x + md5(x + u);</span><br><span class="line">    <span class="keyword">var</span> n;</span><br><span class="line">    <span class="keyword">if</span> (l == <span class="string">"DECODE"</span>) &#123;</span><br><span class="line">        g = g ? g + time() : <span class="number">0</span>;</span><br><span class="line">        tmpstr = g.toString();</span><br><span class="line">        <span class="keyword">if</span> (tmpstr.length &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">            o = tmpstr.substr(<span class="number">0</span>, <span class="number">10</span>) + md5(o + v).substr(<span class="number">0</span>, <span class="number">16</span>) + o</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">var</span> f = <span class="number">10</span> - tmpstr.length;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; f; q++) &#123;</span><br><span class="line">                tmpstr = <span class="string">"0"</span> + tmpstr</span><br><span class="line">            &#125;</span><br><span class="line">            o = tmpstr + md5(o + v).substr(<span class="number">0</span>, <span class="number">16</span>) + o</span><br><span class="line">        &#125;</span><br><span class="line">        n = o</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> k = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">256</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">256</span>; q++) &#123;</span><br><span class="line">        k[q] = q</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> r = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> q = <span class="number">0</span>; q &lt; <span class="number">256</span>; q++) &#123;</span><br><span class="line">        r[q] = t.charCodeAt(q % t.length)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> p = q = <span class="number">0</span>; q &lt; <span class="number">256</span>; q++) &#123;</span><br><span class="line">        p = (p + k[q] + r[q]) % <span class="number">256</span>;</span><br><span class="line">        tmp = k[q];</span><br><span class="line">        k[q] = k[p];</span><br><span class="line">        k[p] = tmp</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> m = <span class="string">""</span>;</span><br><span class="line">    n = n.split(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> w = p = q = <span class="number">0</span>; q &lt; n.length; q++) &#123;</span><br><span class="line">        w = (w + <span class="number">1</span>) % <span class="number">256</span>;</span><br><span class="line">        p = (p + k[w]) % <span class="number">256</span>;</span><br><span class="line">        tmp = k[w];</span><br><span class="line">        k[w] = k[p];</span><br><span class="line">        k[p] = tmp;</span><br><span class="line">        m += chr(ord(n[q]) ^ (k[(k[w] + k[p]) % <span class="number">256</span>]))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (l == <span class="string">"DECODE"</span>) &#123;</span><br><span class="line">        m = base64_encode(m);</span><br><span class="line">        <span class="keyword">var</span> c = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"="</span>,<span class="string">"g"</span>);</span><br><span class="line">        m = m.replace(c, <span class="string">""</span>);</span><br><span class="line">        m = u + m;</span><br><span class="line">        m = base64_decode(d)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>大概意思是对图片网址进行了 base64 编码，所以我们尝试对源码中的<code>&quot;img-hash&quot;&gt;</code> 后面的值进行 base64 解码。</p>
+<p>解码方式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line">b = <span class="string">'Ly93eDEuc2luYWltZy5jbi9tdzYwMC84MmU5ODk1Mmx5MWZ5Z29hcmZqeHFqMjB1bzFoYzdjaS5qcGc='</span></span><br><span class="line">base64.b64decode(b)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="string">b'//wx1.sinaimg.cn/mw600/82e98952ly1fygoarfjxqj20uo1hc7ci.jpg'</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>最后</li>
+</ul>
+<p>把 bytes 对象转换成 str ，再把网址拼接完整就可以了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">url = str(url_bytes, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">complete_url = <span class="string">'http:'</span> + url</span><br></pre></td></tr></table></figure>
+<hr>
+<p>鸣谢：<br><a href="https://github.com/hellospider/jandan" target="_blank" rel="noopener">hellospider - jandan</a><br><a href="https://www.jianshu.com/p/5351baf254ef" target="_blank" rel="noopener">Python爬虫爬取煎蛋网无聊图</a><br><a href="https://github.com/oversplit/Jandan/blob/master/meizi.py" target="_blank" rel="noopener">oversplit - Jandan</a></p>
+<p>2018-12-25</p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/v1coder">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
