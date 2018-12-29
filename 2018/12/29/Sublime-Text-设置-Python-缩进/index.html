@@ -11,7 +11,7 @@
 
     <title>
         
-        Sublime Text 解决 Unable to download XXX 问题 - v1coder
+        Sublime Text 设置 Python 缩进 - v1coder
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sublime-Text-安装插件报错："><span class="toc-text">Sublime Text 安装插件报错：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#解决方法："><span class="toc-text">解决方法：</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        Sublime Text 解决 Unable to download XXX 问题
+        Sublime Text 设置 Python 缩进
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-12-28 15:24:29</span></span>
+        <span class="attr">发布于：<span>2018-12-29 13:29:33</span></span>
         
         <span class="attr">标签：/
         
@@ -137,18 +137,22 @@
 
     </div>
     <div class="post-content ">
-        <h4 id="Sublime-Text-安装插件报错："><a href="#Sublime-Text-安装插件报错：" class="headerlink" title="Sublime Text 安装插件报错："></a>Sublime Text 安装插件报错：</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Package Control</span><br><span class="line"></span><br><span class="line">Unable <span class="keyword">to</span> download XXX. Please view the<span class="built_in"> console </span><span class="keyword">for</span> more details.</span><br></pre></td></tr></table></figure>
+        <p>以下方法只改变了写 Python 代码时的缩进，其他语言不受影响</p>
+<ul>
+<li><p>用 sublime text 打开或新建一个 Python 文件</p>
+</li>
+<li><p><code>Preferences</code> 》 <code>settings - Syntax Specific</code></p>
+</li>
+</ul>
+<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2018-12-29-Python_sittings.png" alt=""></p>
 <p><br></p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>Preferences  》Package Settings 》 Package Control 》 Settings - User</p>
-<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2018-12-28-062929.png" alt=""></p>
+<ul>
+<li>在右边的 <code>Python.sublime-settings</code> 里增加如下配置：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 一次缩进为 4 个空格</span><br><span class="line">"tab_size": 4,</span><br><span class="line">// 把 tab 转换成 空格</span><br><span class="line">"translate_tabs_to_spaces": true</span><br></pre></td></tr></table></figure>
+<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2018-12-29-Python_sittings1.png" alt=""></p>
 <p><br></p>
-<p>增加如下内容：</p>
-<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"debug"</span>: true,</span><br><span class="line"><span class="string">"downloader_precedence"</span>:</span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">"linux"</span>: [ <span class="string">"curl"</span>, <span class="string">"urllib"</span>, <span class="string">"wget"</span> ],</span><br><span class="line">	<span class="string">"osx"</span>: [ <span class="string">"curl"</span>, <span class="string">"urllib"</span> ],</span><br><span class="line">	<span class="string">"windows"</span>: [ <span class="string">"wininet"</span> ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>最终内容如下：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"bootstrapped"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"debug"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"installed_packages"</span>:</span><br><span class="line">	[</span><br><span class="line">		<span class="string">"Package Control"</span></span><br><span class="line">	],</span><br><span class="line">	<span class="attr">"downloader_precedence"</span>:</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">"linux"</span>: [ <span class="string">"curl"</span>, <span class="string">"urllib"</span>,    <span class="string">"wget"</span> ],</span><br><span class="line">		<span class="attr">"osx"</span>: [ <span class="string">"curl"</span>, <span class="string">"urllib"</span> ],</span><br><span class="line">		<span class="attr">"windows"</span>: [ <span class="string">"wininet"</span> ]</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>再次安装插件就没问题了。</p>
-<hr>
-<p>鸣谢：<br><a href="https://www.jianshu.com/p/d1d97f8ac64b" target="_blank" rel="noopener">Sublime安装及解决There are no packages available for installation</a><br><a href="https://blog.csdn.net/csdn_yudong/article/details/84866428" target="_blank" rel="noopener">Mac sublime 安装包的时候出现 unable to download xxx</a><br><a href="https://github.com/wbond/package_control/issues/1220" target="_blank" rel="noopener">CERTIFICATE_VERIFY_FAILED on macOS Sierra Beta</a></p>
+<p>以后新建 Python 文件，tab 键就会自动转换为 4 个空格。</p>
 
         
         <br>
