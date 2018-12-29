@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Python 的 XPath - v1coder
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>v1coder</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#XPath的简单调用方法："><span class="toc-text">XPath的简单调用方法：</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#节点、元素、标签的关系"><span class="toc-text">节点、元素、标签的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#节点关系"><span class="toc-text">节点关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用路径表达式"><span class="toc-text">常用路径表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谓语"><span class="toc-text">谓语</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通配符"><span class="toc-text">通配符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运算符"><span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#属性"><span class="toc-text">属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文本"><span class="toc-text">文本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取网页某节点-xpath-的方法："><span class="toc-text">获取网页某节点 xpath 的方法：</span></a></li></ol>
+</li></div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Python 的 XPath
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-12-29 23:51:09</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#python" title="python">python</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#spider" title="spider">spider</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#xpath" title="xpath">xpath</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <p>XPath，全称 XML Path Language，即 XML 路径语言。它使用路径表达式来选取 XML 文档中的节点或节点集。</p>
+<p>Python 使用 XPath 要先安装 lxml 库</p>
+<h4 id="XPath的简单调用方法："><a href="#XPath的简单调用方法：" class="headerlink" title="XPath的简单调用方法："></a>XPath的简单调用方法：</h4><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from lxml import etree</span><br><span class="line">html = etree.HTML(源码)  <span class="comment"># 将源码转化为能被 XPath 匹配的格式</span></span><br><span class="line">result = html.xpath(表达式)  <span class="comment"># 返回列表</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<hr>
+<p><br></p>
+<h3 id="节点、元素、标签的关系"><a href="#节点、元素、标签的关系" class="headerlink" title="节点、元素、标签的关系"></a>节点、元素、标签的关系</h3><p>将 HTML 文档视作树结构，每个 HTML 元素都是元素节点。节点还包括文本节点、属性节点等。</p>
+<p>HTML 源码中被尖括号（<code>&lt;</code>和<code>&gt;</code>）包起来的是标签，比如<code>&lt;head&gt;、&lt;body&gt;</code>。大多数标签都成对使用 <code>&lt;p&gt;&lt;/p&gt;</code>，成对标签和它们之间的一切形成一个元素，标签名就是元素名。</p>
+<p><br></p>
+<hr>
+<p><br></p>
+<h3 id="节点关系"><a href="#节点关系" class="headerlink" title="节点关系"></a>节点关系</h3><ul>
+<li>a 节点包括 b 节点，则 a 就是 b 的父节点，b 就是 a 的子节点。</li>
+<li>拥有相同父节点的是同胞节点</li>
+<li>某节点的父，父的父，等等，是其先辈节点</li>
+<li>某节点的子，子的子，等等，是其后代节点</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Harry Potter<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">author</span>&gt;</span>J K. Rowling<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">price</span>&gt;</span>29.99<span class="tag">&lt;/<span class="name">price</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>&lt;bookstore&gt;</code> 是 <code>&lt;book&gt;</code> 的父节点</p>
+<p><code>&lt;title&gt;、&lt;author&gt;、&lt;year&gt;、&lt;price&gt;</code> 都是 <code>&lt;book&gt;</code> 的子节点</p>
+<p><code>&lt;title&gt;、&lt;author&gt;、&lt;year&gt;、&lt;price&gt;</code> 互相之间是同胞节点</p>
+<p><code>&lt;bookstore&gt; 、&lt;book&gt;</code> 是 <code>&lt;title&gt;</code> 的先辈节点</p>
+<p><code>&lt;book&gt; 、 &lt;title&gt;</code> 是 <code>&lt;bookstore&gt;</code> 的后代节点</p>
+</blockquote>
+<p><br></p>
+<hr>
+<p><br></p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><h4 id="常用路径表达式"><a href="#常用路径表达式" class="headerlink" title="常用路径表达式"></a>常用路径表达式</h4><blockquote>
+<p><code>/</code>  从当前节点选取直接子节点，或对当前节点进行操作</p>
+<p><code>//</code>  从当前节点选取后代节点</p>
+<p><code>..</code>  选取当前节点的父节点</p>
+<p><code>@</code>  选取属性</p>
+</blockquote>
+<p>示例：</p>
+<blockquote>
+<p><code>/bookstore</code>  选取根元素 bookstore</p>
+<p><code>bookstore/book</code>  选取 bookstore 元素的直接子元素中的 book 元素</p>
+<p><code>//book</code>  选取文档中的所有 book 元素</p>
+<p><code>bookstore//book</code>  选取 bookstore 元素的所有后代 book 元素</p>
+<p><code>//@lang</code>  选取文档中包含 lang 属性的所有元素</p>
+</blockquote>
+<p><br></p>
+<h4 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h4><p>示例：</p>
+<blockquote>
+<p><code>/bookstore/book[1]</code>  选取 bookstore 子元素中的第一个 book 元素</p>
+<p><code>/bookstore/book[last()]</code>  选取 bookstore 子元素中的最后一个 book 元素</p>
+<p><code>/bookstore/book[last()-1]</code>  选取 bookstore 子元素中的倒数第二个 book 元素</p>
+<p><code>//title[@lang]</code>  选取所有拥有 lang 的属性的 title 元素</p>
+<p><code>//title[@lang=&#39;eng&#39;]</code>  选取所有拥有 lang 属性且值为 eng 的 title 元素</p>
+</blockquote>
+<p><br></p>
+<h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><p>示例：</p>
+<blockquote>
+<p><code>/bookstore/*</code>  选取 bookstore 元素的所有子元素</p>
+<p><code>//*</code>  选取文档中的所有元素</p>
+<p><code>//title[@*]</code>  选取所有带有属性的 title 元素</p>
+</blockquote>
+<p><br></p>
+<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><blockquote>
+<p><code>|</code>  选取若干路径 </p>
+</blockquote>
+<p>示例：</p>
+<blockquote>
+<p> <code>//title | //price</code>   选取文档中的所有 title 和 price 元素</p>
+</blockquote>
+<p><br></p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><blockquote>
+<p><code>attribute::lang</code>  选取当前节点的 lang 属性</p>
+</blockquote>
+<p>不含某属性</p>
+<blockquote>
+<p><code>//p[not(@class)]</code>  选取不含 class 属性的所有 p 节点</p>
+<p><code>//p[not(@class or @id)]</code>  选取不含 class 属性和 id 属性的所有 p 节点</p>
+</blockquote>
+<p><br></p>
+<h4 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h4><blockquote>
+<p><code>/text()</code>  获取节点中的文本</p>
+</blockquote>
+<p><br></p>
+<hr>
+<p><br></p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># Filename: xpath_demo.py</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">练习使用 XPath 提取网页内容</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">@author: v1coder</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">'User-Agent'</span>: <span class="string">''</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span><span class="params">(url)</span>:</span></span><br><span class="line">	data = requests.get(url, headers=headers).content</span><br><span class="line">	<span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 简书</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jianshu</span><span class="params">()</span>:</span></span><br><span class="line">	url = <span class="string">'https://www.jianshu.com/p/713415f82576'</span></span><br><span class="line">	data = get_content(url)</span><br><span class="line">	html = etree.HTML(data)</span><br><span class="line">	<span class="comment"># p[not(@class)] 为不含 class 属性的 p 节点</span></span><br><span class="line">	texts = html.xpath(<span class="string">'//p[not(@class)]/text()'</span>) </span><br><span class="line">	<span class="keyword">for</span> text <span class="keyword">in</span> texts[:<span class="number">-1</span>]:</span><br><span class="line">		print(text)</span><br><span class="line"><span class="comment">#jianshu()</span></span><br><span class="line"><span class="comment"># 代码解释：</span></span><br><span class="line"><span class="comment"># //p 为所有 p 元素</span></span><br><span class="line"><span class="comment"># //p[not(@class)] 为所有不含 class 属性的 p 元素</span></span><br><span class="line"><span class="comment"># /text() 为获取当前元素的文本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 盗版小说网站</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">biqukan_com</span><span class="params">()</span>:</span></span><br><span class="line">	url = <span class="string">'https://www.biqukan.com/1_1094/5403177.html'</span></span><br><span class="line">	data = get_content(url)</span><br><span class="line">	html = etree.HTML(data)</span><br><span class="line">	texts = html.xpath(<span class="string">'//div[@id="content"]//text()'</span>)</span><br><span class="line">	<span class="keyword">for</span> text <span class="keyword">in</span> texts:</span><br><span class="line">		print(text)</span><br><span class="line"><span class="comment">#biqukan_com()</span></span><br><span class="line"><span class="comment"># 代码解释：</span></span><br><span class="line"><span class="comment"># //div[@id="content"] 为获取包含 id 属性且属性值为 content 的所有 div 元素</span></span><br><span class="line"><span class="comment"># //text() 为获取当前节点及所有后代节点的文本</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 豆瓣电影 TOP250</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">top_250</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'https://movie.douban.com/top250'</span></span><br><span class="line">    data = get_content(url)</span><br><span class="line">    html = etree.HTML(data)</span><br><span class="line">    <span class="comment"># 第一个 span 节点用 span[1]</span></span><br><span class="line">    texts = html.xpath(<span class="string">'//div[@class="hd"]/a/span[1]/text()'</span>)</span><br><span class="line">    <span class="keyword">for</span> text <span class="keyword">in</span> texts:</span><br><span class="line">        print(text)</span><br><span class="line"><span class="comment">#top_250()</span></span><br><span class="line"><span class="comment"># 代码解释：</span></span><br><span class="line"><span class="comment"># /a 为当前节点的直接子节点中的 a 节点</span></span><br><span class="line"><span class="comment"># /span[1] 为直接子节点中的第一个 span 节点</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 妹子图1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mmjpg_com</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'http://www.mmjpg.com/'</span></span><br><span class="line">    data = get_content(url)</span><br><span class="line">    html = etree.HTML(data)</span><br><span class="line">    <span class="comment"># 获取属性 src 的值，用 attribute::src</span></span><br><span class="line">    urls = html.xpath(<span class="string">'//img[@width="220"]/attribute::src'</span>)</span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">        print(url)</span><br><span class="line"><span class="comment">#mmjpg_com()</span></span><br><span class="line"><span class="comment"># 代码解释：</span></span><br><span class="line"><span class="comment"># /attribute::src' 为获取当前元素的属性 src 的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 妹子图2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">haopic</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'http://www.haopic.me/tag/meizitu'</span></span><br><span class="line">    data = get_content(url)</span><br><span class="line">    html = etree.HTML(data)</span><br><span class="line">    urls = html.xpath(<span class="string">'//div[@class="post"]/a/img/attribute::src'</span>)</span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">        print(url)</span><br><span class="line"><span class="comment">#haopic()</span></span><br><span class="line"><span class="comment"># 代码解释：</span></span><br><span class="line"><span class="comment"># //div  获取所有 div 元素</span></span><br><span class="line"><span class="comment"># '//div[@class="post"] 获取包含属性 class 且属性值为 post 的 div 元素</span></span><br><span class="line"><span class="comment"># /a 获取前面节点的直接子节点中的 a 节点</span></span><br><span class="line"><span class="comment"># /img 获取前面节点的直接子节点中的 img 节点</span></span><br><span class="line"><span class="comment"># /attribute::src 获取前面节点的属性 src 的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 妹子图3</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mzitu</span><span class="params">()</span>:</span></span><br><span class="line">    url = <span class="string">'https://www.mzitu.com/'</span></span><br><span class="line">    data = get_content(url)</span><br><span class="line">    html = etree.HTML(data)</span><br><span class="line">    urls = html.xpath(<span class="string">'//img[@width="236"]/attribute::data-original'</span>)</span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">        print(url)</span><br><span class="line"><span class="comment">#mzitu()</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<hr>
+<p><br></p>
+<h4 id="获取网页某节点-xpath-的方法："><a href="#获取网页某节点-xpath-的方法：" class="headerlink" title="获取网页某节点 xpath 的方法："></a>获取网页某节点 xpath 的方法：</h4><blockquote>
+<p>Chrome浏览器，打开开发者工具（Windows 快捷键 F12，Mac 快捷键 command+option+I）</p>
+<p> 在 elements 中找到想要获取 XPath 的标签，</p>
+<p>单击右键，选择 Copy 》 Copy XPath，XPath路径就复制到剪切板了</p>
+</blockquote>
+<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2018-12-29-copy_xpath.png" alt=""></p>
+<p>或者：</p>
+<blockquote>
+<p>把鼠标放在目标数据上，点击右键，点击”检查”</p>
+<p>在弹出的 Elements 窗口，就已经定位到了该元素的位置</p>
+<p>然后右键，选择 Copy 》 Copy XPath，XPath路径就复制到剪切板了</p>
+</blockquote>
+<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2018-12-29-copy_xpath2.png" alt=""></p>
+<p><br></p>
+<hr>
+<p><br></p>
+<p>报错：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lxml<span class="selector-class">.etree</span><span class="selector-class">.XPathEvalError</span>: Invalid predicate</span><br></pre></td></tr></table></figure>
+<p>通常是使用 xpath 的语法里方括号没写全，例如：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[@<span class="built_in">width</span>=<span class="string">"220"</span></span><br></pre></td></tr></table></figure>
+<p>解决方法：补全符号</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[@width=<span class="string">"220"</span>]</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<hr>
+<p>鸣谢：<br><a href="http://www.w3school.com.cn/xpath/xpath_syntax.asp" target="_blank" rel="noopener">XPath 语法 - w3school</a><br><a href="https://cuiqingcai.com/5545.html" target="_blank" rel="noopener">使用XPath - 静觅</a></p>
+<p>2018-12-29</p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/v1coder">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
