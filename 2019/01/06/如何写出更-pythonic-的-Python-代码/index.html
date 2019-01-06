@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        如何写出更 pythonic 的 Python 代码 - v1coder
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i>  </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg">
+        </div>
+        <div class="name">
+            <i>v1coder</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li>
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li>
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input">
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i>  </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        如何写出更 pythonic 的 Python 代码
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-01-06 22:19:45</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#python" title="python">python</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+
+    </div>
+    <div class="post-content ">
+        <ul>
+<li>交换两个变量的值</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>, <span class="selector-tag">b</span> = <span class="selector-tag">b</span>, a</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>（在合适的时候）使用推导式</li>
+</ul>
+<p>列表推导式</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l = [x*x for x in range(<span class="number">10</span>) if x % <span class="number">3</span> == <span class="number">0</span>]</span><br><span class="line">#l = [<span class="number">0</span>, <span class="number">9</span>, <span class="number">36</span>, <span class="number">81</span>]</span><br></pre></td></tr></table></figure>
+<p>还有字典和集合的推导式</p>
+<p><br></p>
+<ul>
+<li>（在合适的时候）使用生成器</li>
+</ul>
+<p>生成器是可迭代对象，但在每次调用时才产生一个结果，而不是一次产生整个结果。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squares = (x * x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>读取文件</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'filename'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    data = <span class="built_in">file</span>.<span class="built_in">read</span>()</span><br></pre></td></tr></table></figure>
+<p>with 相比于一般的 open、close 有异常处理，并能保证关闭文件。相比于 try…finally 代码更简洁。</p>
+<p><br></p>
+<ul>
+<li>链式比较</li>
+</ul>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">0 </span>&lt; a &lt; <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>真值判断</li>
+</ul>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">name</span> = <span class="string">'v1coder'</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">name</span>:</span><br><span class="line"></span><br><span class="line"># 而不是</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">name</span> != <span class="string">''</span>:</span><br></pre></td></tr></table></figure>
+<p>即，对于任意对象，直接判断其真假，无需写判断条件</p>
+<p>真假值表</p>
+<p><img src="https://blog-pic-1253208066.file.myqcloud.com/2019-01-06-Screenshot%2010.png" alt=""></p>
+<p><br></p>
+<ul>
+<li>字符串反转</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reverse_str</span><span class="params">( s )</span></span><span class="symbol">:</span></span><br><span class="line">    <span class="keyword">return</span> s[<span class="symbol">:</span><span class="symbol">:-</span><span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>字符串列表的连接</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">str_list</span> = [<span class="string">"Python"</span>, <span class="string">"is"</span>, <span class="string">"good"</span>]  </span><br><span class="line"> </span><br><span class="line"><span class="attr">res</span> =  <span class="string">' '</span>.join(str_list) #Python is good</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>for…else…语句</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> xrange(1,5):</span><br><span class="line">    <span class="keyword">if</span> x == 5:</span><br><span class="line">        <span class="built_in">print</span> <span class="string">'find 5'</span></span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'can not find 5!'</span></span><br></pre></td></tr></table></figure>
+<p>如果循环全部遍历完成，没有执行 break，则执行 else 子句</p>
+<p><br></p>
+<ul>
+<li>列表求和，最大值，最小值</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">numList</span> = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]   </span><br><span class="line"> </span><br><span class="line"><span class="attr">sum</span> = sum(numList)</span><br><span class="line"><span class="attr">maxNum</span> = max(numList)</span><br><span class="line"><span class="attr">minNum</span> = min(numList)</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>遍历列表同时输出索引和元素</li>
+</ul>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">choices = [<span class="string">'pizza'</span>, <span class="string">'pasta'</span>, <span class="string">'salad'</span>, <span class="string">'nachos'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> index, <span class="keyword">item</span> <span class="keyword">in</span> enumerate(choices):</span><br><span class="line">  print(index, <span class="keyword">item</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出：</span></span><br><span class="line"><span class="number">0</span> pizza</span><br><span class="line"><span class="number">1</span> pasta</span><br><span class="line"><span class="number">2</span> salad</span><br><span class="line"><span class="number">3</span> nachos</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>遍历字典同时输出键和值</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Google'</span>: <span class="string">'www.google.com'</span>, <span class="string">'Runoob'</span>: <span class="string">'www.runoob.com'</span>, <span class="string">'taobao'</span>: <span class="string">'www.taobao.com'</span>&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> <span class="string">"字典值 : %s"</span> %  dict.<span class="built_in">items</span>()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> key,<span class="built_in">values</span> in  dict.<span class="built_in">items</span>():</span><br><span class="line">    <span class="keyword">print</span> key,<span class="built_in">values</span></span><br><span class="line"></span><br><span class="line"># 输出：</span><br><span class="line">字典值 : [(<span class="string">'Google'</span>, <span class="string">'www.google.com'</span>), (<span class="string">'taobao'</span>, <span class="string">'www.taobao.com'</span>), (<span class="string">'Runoob'</span>, <span class="string">'www.runoob.com'</span>)]</span><br><span class="line">Google www.google.<span class="keyword">com</span></span><br><span class="line">taobao www.taobao.<span class="keyword">com</span></span><br><span class="line">Runoob www.runoob.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<ul>
+<li>根据键名获取字典中对应的值</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dict = &#123;<span class="string">'Name'</span>: <span class="string">'Zara'</span>, <span class="string">'Age'</span>: <span class="number">27</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dict.<span class="built_in">get</span>(<span class="string">'Age'</span>))</span><br><span class="line"><span class="built_in">print</span>(dict.<span class="built_in">get</span>(<span class="string">'Sex'</span>, <span class="string">"Never"</span>))</span><br><span class="line"></span><br><span class="line"># 输出：</span><br><span class="line"><span class="number">27</span></span><br><span class="line">Never</span><br></pre></td></tr></table></figure>
+<p>用 get 方法，不存在时会得到 None，或者指定的默认值。</p>
+<p><br></p>
+<hr>
+<p>pythonic 可以理解为<code>Python 式的优雅</code>，简洁、明了，可读性高。</p>
+<hr>
+<p>鸣谢：<br><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">PEP 8 – Style Guide for Python Code</a><br><a href="https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_language_rules/" target="_blank" rel="noopener">Python语言规范 - Google</a><br><a href="https://www.zhihu.com/question/20244565" target="_blank" rel="noopener">Pythonic 是什么意思？</a></p>
+
+        
+        <br>
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank" href="https://github.com/v1coder">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
